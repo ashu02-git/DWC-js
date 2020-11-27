@@ -1,10 +1,18 @@
 var user_hand = prompt('じゃんけんの手をグー、チョキ、パーから選んでください。');
+while ((user_hand != "グー") && (user_hand != "チョキ") && (user_hand != "パー") && (user_hand != null)){
+  alert('グー・チョキ・パーのいずれかを入力して下さい');
+  user_hand = prompt('じゃんけんの手をグー、チョキ、パーから選んでください。');
+}
 
 var js_hand = getJShand();
 
 var judge = winLose(user_hand, js_hand);
 
-alert('あなたの選んだ手は' + user_hand + 'です。\nJavaScriptの選んだ手は' + js_hand + 'です。\n結果は' + judge + 'です。');
+if (user_hand != null){
+  alert('あなたの選んだ手は' + user_hand + 'です。\nJavaScriptの選んだ手は' + js_hand + 'です。\n結果は' + judge + 'です。');
+} else {
+  alert("またチャレンジしてね")
+}
 
 // ランダムでじゃんけんの手を作成する関数
 function getJShand(){
